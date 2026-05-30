@@ -1,64 +1,53 @@
 /* =========================================
-   UTUKUR DIGITAL UNIVERSE
-   APP.JS
+   VIDHWAAN APP STORE
 ========================================= */
 
-/* =========================================
-   SPLASH SCREEN
-========================================= */
-
-window.addEventListener(
-  "load",
-  () => {
-
-    setTimeout(() => {
-
-      document
-        .getElementById(
-          "appSplash"
-        )
-        ?.classList.add(
-          "hideSplash"
-        );
-
-    }, 900);
-
-  }
-);
-
-/* =========================================
-   ELEMENTS
-========================================= */
-
-const installBtn =
-
+const featuredAppsEl =
   document.getElementById(
-    "installBtn"
+    "featuredApps"
   );
 
-const appsGrid =
-
+const appsGridEl =
   document.getElementById(
     "appsGrid"
   );
 
-const featuredApp =
-
+const categoriesEl =
   document.getElementById(
-    "featuredApp"
+    "categories"
   );
 
-const notificationsFeed =
-
+const searchEl =
   document.getElementById(
-    "notificationsFeed"
+    "appSearch"
+  );
+
+const emptyStateEl =
+  document.getElementById(
+    "emptyState"
   );
 
 /* =========================================
-   SAFE LINKS
+   STATE
 ========================================= */
 
-function safeOpen(url) {
+const state = {
+
+  apps: [],
+
+  featured: [],
+
+  activeCategory: null,
+
+  search: ""
+
+};
+
+/* =========================================
+   SAFE OPEN
+========================================= */
+
+function openApp(url){
 
   window.open(
     url,
@@ -69,172 +58,43 @@ function safeOpen(url) {
 }
 
 /* =========================================
-   APP CARD
+   FEATURED CARD
 ========================================= */
 
-function createAppCard(app) {
+function createFeaturedCard(
+  app
+){
 
   return `
 
-    <div
-      class="appCard"
-    >
-
-      <div class="appCardGlow"></div>
+    <div class="featuredCard">
 
       <img
         src="${app.icon}"
         alt="${app.name}"
-        class="appIcon"
         loading="lazy"
-      />
-
-      <div class="appInfo">
-
-        <div class="appTag">
-
-          ${app.category}
-
-        </div>
-
-        <h3>
-          ${app.name}
-        </h3>
-
-        <p>
-          ${app.description}
-        </p>
-
-        <div class="cardButtons">
-
-          <button
-            class="openCardBtn"
-            onclick="safeOpen('${app.url}')"
-          >
-
-            Open App
-
-          </button>
-
-
-        </div>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-/* =========================================
-   FEATURED CARD
-========================================= */
-
-function createFeaturedCard(app) {
-
-  return `
-
-    <div
-      class="featuredCard"
-    >
-
-      <div class="featuredGlow"></div>
-
-      <div class="featuredImageWrap">
-
-        <img
-          src="${app.icon}"
-          alt="${app.name}"
-          loading="lazy"
-        />
-
-      </div>
-
-      <div class="featuredContent">
-
-        <div class="featuredBadge">
-
-          ${app.badge || "FEATURED"}
-
-        </div>
-
-        <h3>
-          ${app.name}
-        </h3>
-
-        <p>
-          ${app.description}
-        </p>
-
-        <div class="cardButtons">
-
-          <button
-            class="launchButton"
-            onclick="safeOpen('${app.url}')"
-          >
-
-            Open Experience
-
-          </button>
-
-
-
-        </div>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-/* =========================================
-   NOTIFICATION CARD
-========================================= */
-
-function createNotificationCard(item) {
-
-  return `
-
-    <div
-
-      class="notificationCard"
-
-      onclick="safeOpen('${item.url}')"
-
-      role="button"
-
-      tabindex="0"
-
-    >
-
-      <div class="notificationGlow"></div>
-
-      <div class="notificationTop">
-
-        <div class="notificationBadge">
-
-          ${item.badge || "UPDATE"}
-
-        </div>
-
-        <div class="notificationTime">
-
-          ${item.time || "NOW"}
-
-        </div>
-
-      </div>
+      >
 
       <h3>
-        ${item.title}
+
+        ${app.name}
+
       </h3>
 
       <p>
-        ${item.description}
+
+        ${app.description}
+
       </p>
+
+      <button
+        class="launchBtn"
+        onclick="openApp('${app.url}')"
+      >
+
+        Launch App
+
+      </button>
 
     </div>
 
@@ -243,18 +103,358 @@ function createNotificationCard(item) {
 }
 
 /* =========================================
-   INSTALL POPUP
+   APP CARD
 ========================================= */
 
+function createAppCard(
+  app
+){
 
+  return `
+
+    <div class="appCard">
+
+      <img
+        src="${app.icon}"
+        alt="${app.name}"
+        loading="lazy"
+      >
+
+      <h3>
+
+        ${app.name}
+
+      </h3>
+
+      <p>
+
+        ${app.description}
+
+      </p>
+
+      <button
+        class="launchBtn"
+        onclick="openApp('${app.url}')"
+      >
+
+        Launch App
+
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+/* =========================================
+   FEATURED
+========================================= */
+
+function renderFeatured(){
+
+  if(
+    !featuredAppsEl
+  ){
+    return;
+  }
+
+  featuredAppsEl.innerHTML =
+
+    state.featured
+      .map(
+        createFeaturedCard
+      )
+      .join("");
+
+}
+
+/* =========================================
+   CATEGORIES
+========================================= */
+
+function renderCategories(){
+
+  if(
+    !categoriesEl
+  ){
+    return;
+  }
+
+  const categories =
+
+    [
+
+      ...new Set(
+
+        state.apps.map(
+          app =>
+            app.category
+        )
+
+      )
+
+    ]
+
+    .sort();
+
+  categoriesEl.innerHTML =
+
+    categories
+      .map(
+        category =>
+
+        `
+
+        <button
+
+          class="categoryChip"
+
+          data-category="${category}"
+
+        >
+
+          ${category}
+
+        </button>
+
+        `
+      )
+      .join("");
+
+  categoriesEl
+    .querySelectorAll(
+      ".categoryChip"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+
+          () => {
+
+            const value =
+
+              button.dataset
+                .category;
+
+            if(
+              state.activeCategory ===
+              value
+            ){
+
+              state.activeCategory =
+                null;
+
+            }
+
+            else{
+
+              state.activeCategory =
+                value;
+
+            }
+
+            renderApps();
+
+          }
+        );
+
+      }
+    );
+
+}
+
+/* =========================================
+   FILTER
+========================================= */
+
+function getFilteredApps(){
+
+  let apps =
+
+    [...state.apps];
+
+  const query =
+
+    state.search
+      .trim()
+      .toLowerCase();
+
+  if(
+    query
+  ){
+
+    apps =
+
+      apps.filter(
+
+        app =>
+
+          app.name
+            .toLowerCase()
+            .includes(query)
+
+          ||
+
+          app.category
+            .toLowerCase()
+            .includes(query)
+
+          ||
+
+          app.description
+            .toLowerCase()
+            .includes(query)
+
+      );
+
+  }
+
+  if(
+    state.activeCategory
+  ){
+
+    apps =
+
+      apps.filter(
+
+        app =>
+
+          app.category ===
+          state.activeCategory
+
+      );
+
+  }
+
+  return apps;
+
+}
+
+/* =========================================
+   APPS
+========================================= */
+
+function renderApps(){
+
+  if(
+    !appsGridEl
+  ){
+    return;
+  }
+
+  const query =
+
+    state.search
+      .trim();
+
+  const filtered =
+
+    getFilteredApps();
+
+  if(
+
+    !query
+
+    &&
+
+    !state.activeCategory
+
+  ){
+
+    appsGridEl.innerHTML = "";
+
+    emptyStateEl.style.display =
+      "block";
+
+    return;
+  }
+
+  emptyStateEl.style.display =
+    "none";
+
+  appsGridEl.innerHTML =
+
+    filtered
+      .map(
+        createAppCard
+      )
+      .join("");
+
+}
+
+/* =========================================
+   SEARCH
+========================================= */
+
+function setupSearch(){
+
+  if(
+    !searchEl
+  ){
+    return;
+  }
+
+  searchEl.addEventListener(
+
+    "input",
+
+    event => {
+
+      state.search =
+
+        event.target.value;
+
+      renderApps();
+
+    }
+  );
+
+}
+
+/* =========================================
+   LOAD FEATURED
+========================================= */
+
+async function
+loadFeatured(){
+
+  try{
+
+    const response =
+
+      await fetch(
+        "./featured.json"
+      );
+
+    state.featured =
+
+      await response.json();
+
+    renderFeatured();
+
+  }
+
+  catch(error){
+
+    console.error(
+      error
+    );
+
+  }
+
+}
 
 /* =========================================
    LOAD APPS
 ========================================= */
 
-async function loadApps() {
+async function
+loadApps(){
 
-  try {
+  try{
 
     const response =
 
@@ -262,328 +462,23 @@ async function loadApps() {
         "./apps.json"
       );
 
-    const data =
+    state.apps =
+
       await response.json();
 
-    /* =====================
-       FEATURED
-    ===================== */
+    renderCategories();
 
-    const featured =
-
-      data.find(
-        app => app.featured
-      );
-
-    if (
-      featured &&
-      featuredApp
-    ) {
-
-      featuredApp.innerHTML =
-
-        createFeaturedCard(
-          featured
-        );
-
-    }
-
-    /* =====================
-       APPS GRID
-    ===================== */
-
-    if (appsGrid) {
-
-      appsGrid.innerHTML =
-
-        data
-          .map(app =>
-            createAppCard(app)
-          )
-          .join("");
-
-    }
-
-    initCardEffects();
+    renderApps();
 
   }
 
-  catch (error) {
+  catch(error){
 
     console.error(
-      "Apps loading failed",
       error
     );
 
   }
-
-}
-
-/* =========================================
-   LOAD NOTIFICATIONS
-========================================= */
-
-async function loadNotifications() {
-
-  try {
-
-    const response =
-
-      await fetch(
-        "./notifications.json"
-      );
-
-    const data =
-      await response.json();
-
-    if (
-      notificationsFeed
-    ) {
-
-      notificationsFeed.innerHTML =
-
-        data
-          .map(item =>
-            createNotificationCard(
-              item
-            )
-          )
-          .join("");
-
-    }
-
-  }
-
-  catch (error) {
-
-    console.error(
-      "Notifications loading failed",
-      error
-    );
-
-  }
-
-}
-
-/* =========================================
-   CARD EFFECTS
-========================================= */
-
-function initCardEffects() {
-
-  const cards =
-
-    document.querySelectorAll(
-
-      ".appCard, .featuredCard, .notificationCard"
-
-    );
-
-  cards.forEach(card => {
-
-    card.addEventListener(
-      "mousemove",
-      event => {
-
-        const rect =
-          card.getBoundingClientRect();
-
-        const x =
-          event.clientX - rect.left;
-
-        const y =
-          event.clientY - rect.top;
-
-        const centerX =
-          rect.width / 2;
-
-        const centerY =
-          rect.height / 2;
-
-        const rotateX =
-          ((y - centerY) / centerY) * -4;
-
-        const rotateY =
-          ((x - centerX) / centerX) * 4;
-
-        card.style.transform =
-
-          `
-            perspective(1200px)
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            translateY(-6px)
-          `;
-
-      }
-    );
-
-    card.addEventListener(
-      "mouseleave",
-      () => {
-
-        card.style.transform =
-          "";
-
-      }
-    );
-
-  });
-
-}
-
-/* =========================================
-   HERO FLOAT
-========================================= */
-
-const heroLogo =
-
-  document.querySelector(
-    ".heroLogoWrap"
-  );
-
-let floatAngle = 0;
-
-function animateHeroLogo() {
-
-  if (!heroLogo) {
-    return;
-  }
-
-  floatAngle += 0.015;
-
-  const y =
-    Math.sin(floatAngle) * 8;
-
-  const rotate =
-    Math.sin(floatAngle * 0.6) * 2;
-
-  heroLogo.style.transform =
-
-    `
-      translateY(${y}px)
-      rotate(${rotate}deg)
-    `;
-
-  requestAnimationFrame(
-    animateHeroLogo
-  );
-
-}
-
-animateHeroLogo();
-
-/* =========================================
-   PWA INSTALL
-========================================= */
-
-let deferredPrompt = null;
-
-function isPWAInstalled() {
-
-  return (
-
-    window.matchMedia(
-      "(display-mode: standalone)"
-    ).matches ||
-
-    window.navigator.standalone === true
-
-  );
-
-}
-
-window.addEventListener(
-
-  "beforeinstallprompt",
-
-  event => {
-
-    event.preventDefault();
-
-    deferredPrompt = event;
-
-    if (
-      !isPWAInstalled()
-    ) {
-
-      installBtn?.classList.add(
-        "showInstall"
-      );
-
-    }
-
-  }
-);
-
-installBtn?.addEventListener(
-  "click",
-  async () => {
-
-    if (
-      !deferredPrompt
-    ) {
-
-      alert(
-        "Install option not available on this device/browser."
-      );
-
-      return;
-
-    }
-
-    deferredPrompt.prompt();
-
-    const choice =
-      await deferredPrompt.userChoice;
-
-    if (
-      choice.outcome ===
-      "accepted"
-    ) {
-
-      installBtn.classList.remove(
-        "showInstall"
-      );
-
-    }
-
-    deferredPrompt = null;
-
-  }
-);
-
-window.addEventListener(
-  "appinstalled",
-  () => {
-
-    installBtn?.classList.remove(
-      "showInstall"
-    );
-
-    deferredPrompt = null;
-
-  }
-);
-
-/* =========================================
-   SERVICE WORKER
-========================================= */
-
-if (
-  "serviceWorker" in navigator
-) {
-
-  window.addEventListener(
-    "load",
-    () => {
-
-      navigator.serviceWorker
-        .register("./sw.js")
-        .catch(console.error);
-
-    }
-  );
 
 }
 
@@ -592,13 +487,17 @@ if (
 ========================================= */
 
 document.addEventListener(
+
   "error",
+
   event => {
 
-    if (
+    if(
+
       event.target.tagName ===
       "IMG"
-    ) {
+
+    ){
 
       event.target.src =
         "./icons/icon-192.png";
@@ -606,31 +505,28 @@ document.addEventListener(
     }
 
   },
+
   true
+
 );
 
 /* =========================================
-   LOAD SYSTEM
+   BOOT
 ========================================= */
+
+setupSearch();
+
+loadFeatured();
 
 loadApps();
-loadNotifications();
 
 /* =========================================
-   CONSOLE BRANDING
+   GLOBAL
 ========================================= */
 
-console.log(
-
-  "%cUTUKUR DIGITAL UNIVERSE",
-
-  `
-    color:#7defff;
-    font-size:18px;
-    font-weight:bold;
-  `
-);
+window.openApp =
+  openApp;
 
 console.log(
-  "Built by Vidhwaan"
+  "VIDHWAAN APP STORE"
 );
