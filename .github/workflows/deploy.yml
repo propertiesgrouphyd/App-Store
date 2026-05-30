@@ -2,6 +2,8 @@ name: UTUKUR DIGITAL UNIVERSE DEPLOY
 
 on:
 
+
+
   workflow_dispatch:
 
 jobs:
@@ -15,7 +17,7 @@ jobs:
 
     env:
 
-      PROJECT_NAME: utukur
+      PROJECT_NAME: Appstore
 
     steps:
 
@@ -260,4 +262,4 @@ jobs:
 
         run: |
 
-          echo "UTUKUR DIGITAL UNIVERSE DEPLOYED SUCCESSFULLY"
+          echo "VIDHWAAN APP STORE DEPLOYED SUCCESSFULLY"
