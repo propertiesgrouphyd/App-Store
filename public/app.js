@@ -12,11 +12,6 @@ const appsGridEl =
     "appsGrid"
   );
 
-const categoriesEl =
-  document.getElementById(
-    "categories"
-  );
-
 const searchEl =
   document.getElementById(
     "appSearch"
@@ -37,17 +32,19 @@ const state = {
 
   featured: [],
 
-  activeCategory: null,
-
   search: ""
 
 };
 
 /* =========================================
-   SAFE OPEN
+   OPEN APP
 ========================================= */
 
 function openApp(url){
+
+  if(!url){
+    return;
+  }
 
   window.open(
     url,
@@ -61,9 +58,7 @@ function openApp(url){
    FEATURED CARD
 ========================================= */
 
-function createFeaturedCard(
-  app
-){
+function createFeaturedCard(app){
 
   return `
 
@@ -76,24 +71,18 @@ function createFeaturedCard(
       >
 
       <h3>
-
         ${app.name}
-
       </h3>
 
       <p>
-
         ${app.description}
-
       </p>
 
       <button
         class="launchBtn"
         onclick="openApp('${app.url}')"
       >
-
         Launch App
-
       </button>
 
     </div>
@@ -106,9 +95,7 @@ function createFeaturedCard(
    APP CARD
 ========================================= */
 
-function createAppCard(
-  app
-){
+function createAppCard(app){
 
   return `
 
@@ -121,24 +108,18 @@ function createAppCard(
       >
 
       <h3>
-
         ${app.name}
-
       </h3>
 
       <p>
-
         ${app.description}
-
       </p>
 
       <button
         class="launchBtn"
         onclick="openApp('${app.url}')"
       >
-
         Launch App
-
       </button>
 
     </div>
@@ -170,111 +151,10 @@ function renderFeatured(){
 }
 
 /* =========================================
-   CATEGORIES
-========================================= */
-
-function renderCategories(){
-
-  if(
-    !categoriesEl
-  ){
-    return;
-  }
-
-  const categories =
-
-    [
-
-      ...new Set(
-
-        state.apps.map(
-          app =>
-            app.category
-        )
-
-      )
-
-    ]
-
-    .sort();
-
-  categoriesEl.innerHTML =
-
-    categories
-      .map(
-        category =>
-
-        `
-
-        <button
-
-          class="categoryChip"
-
-          data-category="${category}"
-
-        >
-
-          ${category}
-
-        </button>
-
-        `
-      )
-      .join("");
-
-  categoriesEl
-    .querySelectorAll(
-      ".categoryChip"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-
-          () => {
-
-            const value =
-
-              button.dataset
-                .category;
-
-            if(
-              state.activeCategory ===
-              value
-            ){
-
-              state.activeCategory =
-                null;
-
-            }
-
-            else{
-
-              state.activeCategory =
-                value;
-
-            }
-
-            renderApps();
-
-          }
-        );
-
-      }
-    );
-
-}
-
-/* =========================================
-   FILTER
+   SEARCH FILTER
 ========================================= */
 
 function getFilteredApps(){
-
-  let apps =
-
-    [...state.apps];
 
   const query =
 
@@ -283,58 +163,31 @@ function getFilteredApps(){
       .toLowerCase();
 
   if(
-    query
+    !query
   ){
-
-    apps =
-
-      apps.filter(
-
-        app =>
-
-          app.name
-            .toLowerCase()
-            .includes(query)
-
-          ||
-
-          app.category
-            .toLowerCase()
-            .includes(query)
-
-          ||
-
-          app.description
-            .toLowerCase()
-            .includes(query)
-
-      );
-
+    return [];
   }
 
-  if(
-    state.activeCategory
-  ){
+  return state.apps.filter(
 
-    apps =
+    app =>
 
-      apps.filter(
+      app.name
+        .toLowerCase()
+        .includes(query)
 
-        app =>
+      ||
 
-          app.category ===
-          state.activeCategory
+      app.description
+        .toLowerCase()
+        .includes(query)
 
-      );
-
-  }
-
-  return apps;
+  );
 
 }
 
 /* =========================================
-   APPS
+   SEARCH RESULTS
 ========================================= */
 
 function renderApps(){
@@ -350,30 +203,35 @@ function renderApps(){
     state.search
       .trim();
 
+  if(
+    !query
+  ){
+
+    appsGridEl.innerHTML = "";
+
+    if(
+      emptyStateEl
+    ){
+      emptyStateEl.style.display =
+        "block";
+    }
+
+    return;
+
+  }
+
   const filtered =
 
     getFilteredApps();
 
   if(
-
-    !query
-
-    &&
-
-    !state.activeCategory
-
+    emptyStateEl
   ){
-
-    appsGridEl.innerHTML = "";
-
     emptyStateEl.style.display =
-      "block";
-
-    return;
+      filtered.length
+        ? "none"
+        : "block";
   }
-
-  emptyStateEl.style.display =
-    "none";
 
   appsGridEl.innerHTML =
 
@@ -405,11 +263,12 @@ function setupSearch(){
 
       state.search =
 
-        event.target.value;
+        event.target.value || "";
 
       renderApps();
 
     }
+
   );
 
 }
@@ -418,8 +277,7 @@ function setupSearch(){
    LOAD FEATURED
 ========================================= */
 
-async function
-loadFeatured(){
+async function loadFeatured(){
 
   try{
 
@@ -428,6 +286,14 @@ loadFeatured(){
       await fetch(
         "./featured.json"
       );
+
+    if(
+      !response.ok
+    ){
+      throw new Error(
+        "featured.json"
+      );
+    }
 
     state.featured =
 
@@ -440,6 +306,7 @@ loadFeatured(){
   catch(error){
 
     console.error(
+      "Featured Load Error",
       error
     );
 
@@ -451,8 +318,7 @@ loadFeatured(){
    LOAD APPS
 ========================================= */
 
-async function
-loadApps(){
+async function loadApps(){
 
   try{
 
@@ -462,19 +328,24 @@ loadApps(){
         "./apps.json"
       );
 
+    if(
+      !response.ok
+    ){
+      throw new Error(
+        "apps.json"
+      );
+    }
+
     state.apps =
 
       await response.json();
-
-    renderCategories();
-
-    renderApps();
 
   }
 
   catch(error){
 
     console.error(
+      "Apps Load Error",
       error
     );
 
@@ -528,5 +399,5 @@ window.openApp =
   openApp;
 
 console.log(
-  "VIDHWAAN APP STORE"
+  "VIDHWAAN APP STORE READY"
 );
