@@ -1,0 +1,268 @@
+name: UTUKUR DIGITAL UNIVERSE DEPLOY
+
+on:
+
+  push:
+
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    env:
+
+      PROJECT_NAME: utukur
+
+    steps:
+
+      # =====================================
+      # CHECKOUT
+      # =====================================
+
+      - name: Checkout Repository
+
+        uses: actions/checkout@v4
+
+      # =====================================
+      # NODE
+      # =====================================
+
+      - name: Setup Node.js
+
+        uses: actions/setup-node@v4
+
+        with:
+          node-version: 22
+
+      # =====================================
+      # INSTALL TOOLS
+      # =====================================
+
+      - name: Install Build Tools
+
+        run: |
+
+          npm install -g terser
+          npm install -g javascript-obfuscator
+          npm install -g clean-css-cli
+          npm install -g html-minifier-terser
+          npm install -g wrangler
+
+      # =====================================
+      # CREATE DIST
+      # =====================================
+
+      - name: Prepare Dist Folder
+
+        run: |
+
+          rm -rf dist
+
+          mkdir -p dist
+
+          cp -r public/* dist/
+
+      # =====================================
+      # MINIFY HTML
+      # =====================================
+
+      - name: Minify HTML
+
+        run: |
+
+          find dist -type f -name "*.html" | while read file
+          do
+
+            html-minifier-terser \
+              --collapse-whitespace \
+              --remove-comments \
+              --remove-redundant-attributes \
+              --remove-script-type-attributes \
+              --remove-tag-whitespace \
+              --use-short-doctype \
+              --minify-css true \
+              --minify-js true \
+              "$file" \
+              -o "$file"
+
+          done
+
+      # =====================================
+      # MINIFY CSS
+      # =====================================
+
+      - name: Minify CSS
+
+        run: |
+
+          find dist -type f -name "*.css" | while read file
+          do
+
+            cleancss \
+              -O2 \
+              "$file" \
+              -o "$file"
+
+          done
+
+      # =====================================
+      # MINIFY JS
+      # =====================================
+
+      - name: Minify JavaScript
+
+        run: |
+
+          find dist -type f -name "*.js" | while read file
+          do
+
+            terser "$file" \
+              --compress \
+              --mangle \
+              -o "$file"
+
+          done
+
+      # =====================================
+      # OBFUSCATE JS
+      # =====================================
+
+      - name: Obfuscate JavaScript
+
+        run: |
+
+          find dist -type f -name "*.js" | while read file
+          do
+
+            javascript-obfuscator "$file" \
+              --output "$file" \
+              --compact true \
+              --control-flow-flattening true \
+              --control-flow-flattening-threshold 1 \
+              --dead-code-injection true \
+              --dead-code-injection-threshold 1 \
+              --disable-console-output true \
+              --identifier-names-generator hexadecimal \
+              --rename-globals false \
+              --self-defending true \
+              --split-strings true \
+              --split-strings-chunk-length 5 \
+              --string-array true \
+              --string-array-encoding base64 \
+              --string-array-threshold 1 \
+              --unicode-escape-sequence true
+
+          done
+
+      # =====================================
+      # BUILD VERSION
+      # =====================================
+
+      - name: Generate Build Version
+
+        run: |
+
+          echo "BUILD_VERSION=$(date +%s)" >> $GITHUB_ENV
+
+      # =====================================
+      # CACHE BUSTING
+      # =====================================
+
+      - name: Inject Cache Busting
+
+        run: |
+
+          find dist -type f -name "*.html" | while read file
+          do
+
+            sed -i "s|main.css|main.css?v=${BUILD_VERSION}|g" "$file"
+
+            sed -i "s|app.js|app.js?v=${BUILD_VERSION}|g" "$file"
+
+            sed -i "s|manifest.json|manifest.json?v=${BUILD_VERSION}|g" "$file"
+
+          done
+
+      # =====================================
+      # SECURITY HEADERS
+      # =====================================
+
+      - name: Create Security Headers
+
+        run: |
+
+          cat > dist/_headers <<EOF
+          /*
+            X-Frame-Options: SAMEORIGIN
+            X-Content-Type-Options: nosniff
+            Referrer-Policy: strict-origin-when-cross-origin
+            Permissions-Policy: geolocation=(self)
+            Cross-Origin-Opener-Policy: same-origin
+            Cross-Origin-Embedder-Policy: credentialless
+            Content-Security-Policy: default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval';
+          EOF
+
+      # =====================================
+      # CREATE CLOUDFLARE PROJECT IF MISSING
+      # =====================================
+
+      - name: Create Cloudflare Project If Missing
+
+        env:
+
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+        run: |
+
+          if ! wrangler pages project list | grep -q "$PROJECT_NAME"
+          then
+
+            echo "Creating Cloudflare Pages Project..."
+
+            wrangler pages project create "$PROJECT_NAME" \
+              --production-branch main
+
+          else
+
+            echo "Project already exists."
+
+          fi
+
+      # =====================================
+      # DEPLOY
+      # =====================================
+
+      - name: Deploy To Cloudflare Pages
+
+        env:
+
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+        run: |
+
+          wrangler pages deploy dist \
+            --project-name="$PROJECT_NAME" \
+            --commit-dirty=true
+
+      # =====================================
+      # SUCCESS
+      # =====================================
+
+      - name: Deployment Success
+
+        run: |
+
+          echo "UTUKUR DIGITAL UNIVERSE DEPLOYED SUCCESSFULLY"

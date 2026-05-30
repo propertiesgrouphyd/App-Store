@@ -1,0 +1,73 @@
+[
+  {
+    "id": "kidlab",
+
+    "name": "KidLab",
+
+    "category": "SCIENCE",
+
+    "badge": "INTERNATIONAL SCIENCE APP",
+
+    "description": "Interactive science learning missions, futuristic quizzes, visual explanations and game-like educational experiences for students.",
+
+    "url": "https://utukurkidlab.vidhwaan.com",
+
+    "icon": "https://utukurkidlab.vidhwaan.com/icons/logo2.png",
+
+    "featured": false
+  },
+
+  {
+    "id": "gita",
+
+    "name": "Bhagavad Gita",
+
+    "category": "SPIRITUAL",
+
+    "badge": "SPIRITUAL EXPERIENCE",
+
+    "description": "Daily spiritual wisdom, Bhagavad Gita learning and peaceful life guidance experience.",
+
+    "url": "https://gita.vidhwaan.com",
+
+    "icon": "https://gita.vidhwaan.com/icons/icon-512.png",
+
+    "featured": false
+  },
+
+  {
+    "id": "quotes",
+
+    "name": "Quotes",
+
+    "category": "MOTIVATION",
+
+    "badge": "DAILY INSPIRATION",
+
+    "description": "Premium quotes, powerful thoughts and motivational daily inspiration ecosystem.",
+
+    "url": "https://quotes.vidhwaan.com",
+
+    "icon": "https://quotes.vidhwaan.com/icons/icon-512.png",
+
+    "featured": false
+  },
+
+  {
+    "id": "marketplace",
+
+    "name": "Utukur Marketplace",
+
+    "category": "MARKETPLACE",
+
+    "badge": "VILLAGE COMMERCE",
+
+    "description": "Village commerce, buying, selling and futuristic local delivery ecosystem.",
+
+    "url": "https://market.vidhwaan.com",
+
+    "icon": "https://market.vidhwaan.com/icons/icon-512.png",
+
+    "featured": true
+  }
+]
