@@ -1,0 +1,65 @@
+[
+  {
+    "id": "vidhwaan-ai",
+    "name": "Vidhwaan AI",
+    "category": "AI",
+    "badge": "FLAGSHIP",
+    "description": "Advanced AI assistants, intelligent automation, productivity systems and next-generation digital experiences.",
+    "icon": "https://ai.vidhwaan.com/icons/icon-512.png",
+    "url": "https://ai.vidhwaan.com"
+  },
+  {
+    "id": "vidhai",
+    "name": "VidhAI",
+    "category": "BUSINESS",
+    "badge": "SMART AUTOMATION",
+    "description": "AI-powered business automation, digital transformation, websites and intelligent workflow solutions.",
+    "icon": "https://vidhai.vidhwaan.com/icons/icon-512.png",
+    "url": "https://vidhai.vidhwaan.com"
+  },
+  {
+    "id": "apps-platform",
+    "name": "Vidhwaan Apps Platform",
+    "category": "PRODUCTIVITY",
+    "badge": "DEVELOPER SUITE",
+    "description": "Unified workspace featuring development tools, productivity applications, project management and future AI-powered utilities.",
+    "icon": "https://apps.vidhwaan.com/icons/icon-512.png",
+    "url": "https://apps.vidhwaan.com"
+  },
+  {
+    "id": "marketplace",
+    "name": "Village Marketplace",
+    "category": "MARKETPLACE",
+    "badge": "VILLAGE COMMERCE",
+    "description": "Modern commerce infrastructure connecting local businesses, products, services and village economies.",
+    "icon": "https://market.vidhwaan.com/icons/icon-512.png",
+    "url": "https://market.vidhwaan.com"
+  },
+  {
+    "id": "vidhwaan-technologies",
+    "name": "Vidhwaan Technologies",
+    "category": "TECHNOLOGY",
+    "badge": "GLOBAL INFRASTRUCTURE",
+    "description": "Cloud-native platforms, automation systems and scalable software solutions built for global impact.",
+    "icon": "https://tech.vidhwaan.com/icons/icon-512.png",
+    "url": "https://tech.vidhwaan.com"
+  },
+  {
+    "id": "vidhwaan-group",
+    "name": "Vidhwaan Group",
+    "category": "ECOSYSTEM",
+    "badge": "OFFICIAL",
+    "description": "The official gateway to the Vidhwaan ecosystem connecting products, technology, education and future innovation.",
+    "icon": "https://vidhwaan.com/icons/icon-512.png",
+    "url": "https://vidhwaan.com"
+  },
+  {
+    "id": "utukur",
+    "name": "Utukur App",
+    "category": "COMMUNITY",
+    "badge": "SMART VILLAGE",
+    "description": "Digital gateway for village services, community information, local experiences and future smart-village initiatives.",
+    "icon": "https://utukur.vidhwaan.com/icons/icon-512.png",
+    "url": "https://utukur.vidhwaan.com"
+  }
+]
