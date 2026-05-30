@@ -3,12 +3,12 @@
 
 <head>
 
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
 
   <meta
     name="viewport"
     content="width=device-width,initial-scale=1"
-  />
+  >
 
   <title>
     Vidhwaan App Store
@@ -16,74 +16,47 @@
 
   <meta
     name="description"
-    content="Discover AI, education, spirituality, productivity, business and developer applications built by Vidhwaan."
-  />
-
-  <meta
-    name="keywords"
-    content="Vidhwaan, App Store, AI Apps, KidLab, Bhagavad Gita, Quotes, Productivity Apps, Education Apps"
-  />
-
-  <meta
-    name="author"
-    content="Vidhwaan"
-  />
+    content="Discover AI, Education, Spirituality, Business, Productivity and Community applications built by Vidhwaan."
+  >
 
   <meta
     name="theme-color"
     content="#07111f"
-  />
+  >
 
   <meta
     property="og:type"
     content="website"
-  />
+  >
 
   <meta
     property="og:title"
     content="Vidhwaan App Store"
-  />
+  >
 
   <meta
     property="og:description"
-    content="Discover and access the complete ecosystem of Vidhwaan applications."
-  />
+    content="Discover amazing applications built by Vidhwaan."
+  >
 
   <meta
     property="og:image"
     content="./icons/icon-512.png"
-  />
-
-  <meta
-    property="og:url"
-    content="https://apps.vidhwaan.com"
-  />
+  >
 
   <link
     rel="icon"
     href="./favicon.ico"
-    sizes="any"
-  />
+  >
 
   <link
     rel="stylesheet"
     href="./main.css"
-  />
+  >
 
 </head>
 
 <body>
-
-  <!-- Splash -->
-
-  <div id="appSplash">
-
-    <img
-      src="./icons/icon-192.png"
-      alt="Vidhwaan"
-    />
-
-  </div>
 
   <!-- Background -->
 
@@ -97,52 +70,39 @@
 
     <!-- Hero -->
 
-    <section class="heroSection">
+    <section class="hero">
 
-      <div class="heroLogoWrap">
+      <div class="heroBadge">
 
-        <img
-          src="./icons/logo.png"
-          alt="Vidhwaan"
-          class="heroLogo"
-        />
+        VIDHWAAN APP STORE
 
       </div>
 
-      <div class="heroContent">
+      <h1>
 
-        <div class="heroBadge">
+        Discover Amazing Apps
+        Built By Vidhwaan
 
-          VIDHWAAN APP STORE
+      </h1>
 
-        </div>
+      <p>
 
-        <h1>
+        AI.
+        Education.
+        Spirituality.
+        Productivity.
+        Business.
+        Community.
 
-          Discover Amazing Apps Built By Vidhwaan
+        One Unified Ecosystem.
 
-        </h1>
-
-        <p class="heroText">
-
-          AI...
-          Education...
-          Productivity...
-          Spirituality...
-          Business...
-          Developer Tools...
-
-          all in one unified ecosystem.
-
-        </p>
-
-      </div>
+      </p>
 
     </section>
 
     <!-- Search -->
 
-    <section class="sectionBlock">
+    <section class="searchSection">
 
       <div class="searchWrap">
 
@@ -151,7 +111,7 @@
           type="search"
           placeholder="Search apps..."
           autocomplete="off"
-        />
+        >
 
       </div>
 
@@ -159,9 +119,9 @@
 
     <!-- Featured -->
 
-    <section class="sectionBlock">
+    <section class="section">
 
-      <div class="sectionTitleWrap">
+      <div class="sectionHeader">
 
         <h2>
 
@@ -171,15 +131,39 @@
 
       </div>
 
-      <div id="featuredApps"></div>
+      <div
+        id="featuredApps"
+        class="featuredApps"
+      ></div>
+
+    </section>
+
+    <!-- Categories -->
+
+    <section class="section">
+
+      <div class="sectionHeader">
+
+        <h2>
+
+          Categories
+
+        </h2>
+
+      </div>
+
+      <div
+        id="categories"
+        class="categories"
+      ></div>
 
     </section>
 
     <!-- Search Results -->
 
-    <section class="sectionBlock">
+    <section class="section">
 
-      <div class="sectionTitleWrap">
+      <div class="sectionHeader">
 
         <h2>
 
@@ -189,7 +173,32 @@
 
       </div>
 
-      <div id="appsGrid"></div>
+      <div
+        id="appsGrid"
+        class="appsGrid"
+      ></div>
+
+    </section>
+
+    <!-- Empty State -->
+
+    <section
+      id="emptyState"
+      class="emptyState"
+    >
+
+      <h3>
+
+        Search To Discover Apps
+
+      </h3>
+
+      <p>
+
+        Find AI, Education, Village,
+        Business and Community apps.
+
+      </p>
 
     </section>
 
@@ -200,8 +209,7 @@
       <img
         src="./icons/logo.png"
         alt="Vidhwaan"
-        class="footerLogo"
-      />
+      >
 
       <p>
 
