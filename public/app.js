@@ -37,6 +37,96 @@ const state = {
 };
 
 /* =========================================
+   NORMALIZE
+========================================= */
+
+function normalizeText(text){
+
+  return (text || "")
+
+    .toLowerCase()
+
+    .normalize("NFD")
+
+    .replace(/[\u0300-\u036f]/g, "")
+
+    .replace(/[^a-z0-9\s]/g, "")
+
+    .replace(/\s+/g, " ")
+
+    .trim();
+
+}
+
+/* =========================================
+   LEVENSHTEIN
+========================================= */
+
+function levenshtein(a,b){
+
+  const matrix = [];
+
+  for(
+    let i = 0;
+    i <= b.length;
+    i++
+  ){
+    matrix[i] = [i];
+  }
+
+  for(
+    let j = 0;
+    j <= a.length;
+    j++
+  ){
+    matrix[0][j] = j;
+  }
+
+  for(
+    let i = 1;
+    i <= b.length;
+    i++
+  ){
+
+    for(
+      let j = 1;
+      j <= a.length;
+      j++
+    ){
+
+      if(
+        b.charAt(i - 1) ===
+        a.charAt(j - 1)
+      ){
+
+        matrix[i][j] =
+          matrix[i - 1][j - 1];
+
+      }
+
+      else{
+
+        matrix[i][j] = Math.min(
+
+          matrix[i - 1][j - 1] + 1,
+
+          matrix[i][j - 1] + 1,
+
+          matrix[i - 1][j] + 1
+
+        );
+
+      }
+
+    }
+
+  }
+
+  return matrix[b.length][a.length];
+
+}
+
+/* =========================================
    OPEN APP
 ========================================= */
 
@@ -151,16 +241,80 @@ function renderFeatured(){
 }
 
 /* =========================================
-   SEARCH FILTER
+   SMART SEARCH
 ========================================= */
+
+function scoreApp(app,query){
+
+  const name =
+
+    normalizeText(
+      app.name
+    );
+
+  if(
+    name === query
+  ){
+    return 1000;
+  }
+
+  if(
+    name.startsWith(query)
+  ){
+    return 900;
+  }
+
+  if(
+    name.includes(query)
+  ){
+    return 800;
+  }
+
+  const words =
+    name.split(" ");
+
+  for(
+    const word of words
+  ){
+
+    if(
+      word.startsWith(query)
+    ){
+      return 700;
+    }
+
+  }
+
+  const distance =
+
+    levenshtein(
+      query,
+      name
+    );
+
+  if(
+    distance <= 1
+  ){
+    return 600;
+  }
+
+  if(
+    distance <= 2
+  ){
+    return 500;
+  }
+
+  return 0;
+
+}
 
 function getFilteredApps(){
 
   const query =
 
-    state.search
-      .trim()
-      .toLowerCase();
+    normalizeText(
+      state.search
+    );
 
   if(
     !query
@@ -168,26 +322,41 @@ function getFilteredApps(){
     return [];
   }
 
-  return state.apps.filter(
+  return state.apps
 
-    app =>
+    .map(
+      app => ({
 
-      app.name
-        .toLowerCase()
-        .includes(query)
+        app,
 
-      ||
+        score:
+          scoreApp(
+            app,
+            query
+          )
 
-      app.description
-        .toLowerCase()
-        .includes(query)
+      })
+    )
 
-  );
+    .filter(
+      item =>
+        item.score > 0
+    )
+
+    .sort(
+      (a,b) =>
+        b.score - a.score
+    )
+
+    .map(
+      item =>
+        item.app
+    );
 
 }
 
 /* =========================================
-   SEARCH RESULTS
+   RENDER RESULTS
 ========================================= */
 
 function renderApps(){
@@ -244,7 +413,7 @@ function renderApps(){
 }
 
 /* =========================================
-   SEARCH
+   SEARCH INPUT
 ========================================= */
 
 function setupSearch(){
@@ -284,7 +453,7 @@ async function loadFeatured(){
     const response =
 
       await fetch(
-        "./featured.json"
+        `./featured.json?v=${Date.now()}`
       );
 
     if(
@@ -325,7 +494,7 @@ async function loadApps(){
     const response =
 
       await fetch(
-        "./apps.json"
+        `./apps.json?v=${Date.now()}`
       );
 
     if(
