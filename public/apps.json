@@ -55,13 +55,22 @@
     "icon": "https://utukur.vidhwaan.com/icons/icon-512.png",
     "url": "https://utukur.vidhwaan.com"
   },
+
+  {
+    "id": "Rapur",
+    "name": "Rapur App",
+    "category": "COMMUNITY",
+    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
+    "icon": "https://rapur.vidhwaan.com/icons/icon-512.png",
+    "url": "https://rapur.vidhwaan.com"
+  },
   {
     "id": "kidlab",
     "name": "KidLab",
     "category": "EDUCATION",
     "description": "Interactive science missions, experiments, visual learning and futuristic educational experiences.",
-    "icon": "https://utukurkidlab.vidhwaan.com/icons/logo2.png",
-    "url": "https://utukurkidlab.vidhwaan.com"
+    "icon": "https://villagekidlab.vidhwaan.com/icons/logo2.png",
+    "url": "https://villagekidlab.vidhwaan.com"
   },
   {
     "id": "gita",
