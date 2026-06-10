@@ -65,6 +65,69 @@
     "url": "https://rapur.vidhwaan.com"
   },
   {
+    "id": "Sydapuram",
+    "name": "Sydapuram App",
+    "category": "COMMUNITY",
+    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
+    "icon": "https://sydapuram.vidhwaan.com/icons/icon-512.png",
+    "url": "https://sydapuram.vidhwaan.com"
+  },
+
+  {
+    "id": "Podalakur",
+    "name": "Podalakur App",
+    "category": "COMMUNITY",
+    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
+    "icon": "https://podalakur.vidhwaan.com/icons/icon-512.png",
+    "url": "https://podalakur.vidhwaan.com"
+  },
+
+  {
+    "id": "Gudur",
+    "name": "Gudur App",
+    "category": "COMMUNITY",
+    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
+    "icon": "https://gudur.vidhwaan.com/icons/icon-512.png",
+    "url": "https://gudur.vidhwaan.com"
+  },
+
+  {
+    "id": "Nellore",
+    "name": "Nellore App",
+    "category": "COMMUNITY",
+    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
+    "icon": "https://nellore.vidhwaan.com/icons/icon-512.png",
+    "url": "https://nellore.vidhwaan.com"
+  },
+
+  {
+    "id": "kavali",
+    "name": "Kavali App",
+    "category": "COMMUNITY",
+    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
+    "icon": "https://kavali.vidhwaan.com/icons/icon-512.png",
+    "url": "https://kavali.vidhwaan.com"
+  },
+
+  {
+    "id": "Krishnapatnam",
+    "name": "Krishnapatnam App",
+    "category": "COMMUNITY",
+    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
+    "icon": "https://krishnapatnam.vidhwaan.com/icons/icon-512.png",
+    "url": "https://krishnapatnam.vidhwaan.com"
+  },
+
+  {
+    "id": "Turimerla",
+    "name": "Turimerla",
+    "category": "COMMUNITY",
+    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
+    "icon": "https://turimerla.vidhwaan.com/icons/icon-512.png",
+    "url": "https://turimerla.vidhwaan.com"
+  },
+  
+  {
     "id": "kidlab",
     "name": "KidLab",
     "category": "EDUCATION",
