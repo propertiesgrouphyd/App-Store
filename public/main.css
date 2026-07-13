@@ -1,615 +1,385 @@
 :root{
 
-  --bg:#07111f;
-  --bg2:#0d1730;
+    --bg:#0b1120;
+    --surface:#111827;
+    --surface2:#1f2937;
+    --border:#263244;
 
-  --card:
-    rgba(255,255,255,.05);
+    --text:#ffffff;
+    --text2:#9ca3af;
 
-  --cardBorder:
-    rgba(255,255,255,.08);
+    --gold:#d4af37;
 
-  --text:#eef4ff;
+    --radius:18px;
 
-  --muted:
-    rgba(238,244,255,.65);
-
-  --accent:#4fdcff;
-
-  --accent2:#4f8cff;
-
-  --radius:28px;
-
-  --max:1400px;
+    --shadow:0 15px 40px rgba(0,0,0,.35);
 
 }
 
 *{
 
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
 
-}
+    padding:0;
 
-html{
-
-  scroll-behavior:smooth;
+    box-sizing:border-box;
 
 }
 
 body{
 
-  min-height:100vh;
+    background:var(--bg);
 
-  color:var(--text);
+    color:var(--text);
 
-  background:
-
-    radial-gradient(
-      circle at top left,
-      rgba(79,220,255,.12),
-      transparent 25%
-    ),
-
-    radial-gradient(
-      circle at top right,
-      rgba(79,140,255,.12),
-      transparent 25%
-    ),
-
-    linear-gradient(
-      180deg,
-      var(--bg),
-      var(--bg2)
-    );
-
-  font-family:
-    Inter,
-    system-ui,
-    sans-serif;
-
-  overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
 
 }
 
-/* =========================
-   BACKGROUND
-========================= */
+a{
 
-.bgOrb{
+    color:inherit;
 
-  position:fixed;
-
-  border-radius:999px;
-
-  filter:blur(90px);
-
-  pointer-events:none;
-
-  z-index:-1;
+    text-decoration:none;
 
 }
 
-.orb1{
+.container{
 
-  width:300px;
-  height:300px;
+    width:min(1300px,94%);
 
-  left:-100px;
-  top:-100px;
-
-  background:
-    rgba(79,220,255,.12);
+    margin:auto;
 
 }
 
-.orb2{
 
-  width:340px;
-  height:340px;
 
-  right:-120px;
-  top:25%;
 
-  background:
-    rgba(79,140,255,.12);
 
-}
+/* ========================================= */
 
-.orb3{
+.header{
 
-  width:260px;
-  height:260px;
+    padding:22px 0;
 
-  left:20%;
-  bottom:-100px;
+    border-bottom:1px solid var(--border);
 
-  background:
-    rgba(125,125,255,.10);
+    background:#09101d;
 
 }
 
-/* =========================
-   APP
-========================= */
+.logo{
 
-#app{
+    display:flex;
 
-  width:100%;
+    align-items:center;
 
-  max-width:var(--max);
+    gap:14px;
 
-  margin:auto;
+    font-size:26px;
 
-  padding:32px 18px 80px;
+    font-weight:700;
 
 }
 
-/* =========================
-   HERO
-========================= */
+.logo img{
 
-.hero{
+    width:52px;
 
-  padding:
-    40px 0
-    40px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  text-align:center;
+    height:52px;
 
 }
 
-.heroLogo{
 
-  width:160px;
 
-  height:160px;
 
-  object-fit:contain;
 
-  display:block;
+/* ========================================= */
 
-  margin:0 auto 20px;
+.search-section{
 
-}
+    padding:55px 0 30px;
 
-.heroBadge{
-
-  display:inline-flex;
-
-  padding:
-    10px 18px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,255,255,.05);
-
-  border:
-    1px solid
-    rgba(255,255,255,.08);
-
-  color:
-    var(--accent);
-
-  font-size:.8rem;
-
-  font-weight:800;
-
-  letter-spacing:.12em;
-
-  margin-bottom:20px;
+    text-align:center;
 
 }
 
-.hero h1{
+.search-section h1{
 
-  font-size:
-    clamp(
-      2.5rem,
-      6vw,
-      5rem
-    );
+    font-size:42px;
 
-  line-height:1.05;
-
-  letter-spacing:-.04em;
-
-  max-width:900px;
-
-  margin-top:0;
+    margin-bottom:12px;
 
 }
 
-.hero p{
+.search-section p{
 
-  margin-top:18px;
+    color:var(--text2);
 
-  max-width:700px;
-
-  color:
-    var(--muted);
-
-  line-height:1.8;
-
-  font-size:1.05rem;
+    margin-bottom:35px;
 
 }
 
-/* =========================
-   SEARCH
-========================= */
 
-.searchSection{
 
-  margin-bottom:60px;
 
-}
 
-.searchWrap{
+.search-box{
 
-  position:sticky;
+    display:flex;
 
-  top:18px;
+    justify-content:center;
 
-  z-index:100;
+    gap:15px;
+
+    flex-wrap:wrap;
 
 }
 
-#appSearch{
 
-  width:100%;
 
-  border:none;
 
-  outline:none;
 
-  border-radius:999px;
+.search-box input{
 
-  padding:
-    22px 28px;
+    width:min(650px,100%);
 
-  background:
-    rgba(255,255,255,.06);
+    padding:18px 22px;
 
-  border:
-    1px solid
-    rgba(255,255,255,.08);
+    border-radius:16px;
 
-  color:white;
+    border:1px solid var(--border);
 
-  font-size:1rem;
+    background:var(--surface);
 
-  backdrop-filter:
-    blur(18px);
+    color:#fff;
+
+    font-size:17px;
+
+    outline:none;
 
 }
 
-#appSearch::placeholder{
 
-  color:
-    rgba(255,255,255,.45);
 
-}
 
-/* =========================
-   SECTIONS
-========================= */
 
-.section{
+.search-box input:focus{
 
-  margin-bottom:40px;
+    border-color:var(--gold);
 
 }
 
-.sectionHeader{
 
-  margin-bottom:24px;
 
-}
 
-.sectionHeader h2{
 
-  font-size:1.8rem;
+.search-box button{
 
-  font-weight:900;
+    padding:18px 35px;
 
-}
+    border:none;
 
-/* =========================
-   FEATURED
-========================= */
+    border-radius:16px;
 
-.featuredApps{
+    background:var(--gold);
 
-  display:flex;
+    color:#000;
 
-  gap:20px;
+    cursor:pointer;
 
-  overflow-x:auto;
+    font-weight:bold;
 
-  padding-bottom:6px;
-
-  scroll-snap-type:x mandatory;
+    font-size:16px;
 
 }
 
-.featuredApps::-webkit-scrollbar{
 
-  display:none;
 
-}
 
-/* =========================
-   CATEGORIES
-========================= */
 
-.categories{
+.app-count{
 
-  display:flex;
+    margin-top:22px;
 
-  flex-wrap:wrap;
+    color:var(--text2);
 
-  gap:12px;
+    font-size:15px;
 
 }
 
-.categoryChip{
 
-  padding:
-    12px 18px;
 
-  border-radius:999px;
 
-  background:
-    rgba(255,255,255,.05);
 
-  border:
-    1px solid
-    rgba(255,255,255,.08);
+/* ========================================= */
 
-  cursor:pointer;
+.apps-grid{
 
-  transition:.2s;
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(110px,1fr));
+
+    gap:30px;
+
+    padding:20px 0 70px;
 
 }
 
-.categoryChip:hover{
 
-  border-color:
-    var(--accent);
 
-}
 
-/* =========================
-   CARDS
-========================= */
 
-.featuredCard,
-.appCard{
+.app{
 
-  background:
-    var(--card);
+    display:flex;
 
-  border:
-    1px solid
-    var(--cardBorder);
+    flex-direction:column;
 
-  backdrop-filter:
-    blur(18px);
+    align-items:center;
 
-  border-radius:
-    var(--radius);
+    cursor:pointer;
+
+    transition:.25s;
 
 }
 
-.featuredCard{
 
-  min-width:360px;
 
-  padding:24px;
 
-  scroll-snap-align:start;
 
-}
+.app:hover{
 
-.appCard{
-
-  padding:22px;
+    transform:translateY(-6px);
 
 }
 
-.featuredCard img,
-.appCard img{
 
-  width:90px;
-  height:90px;
 
-  object-fit:contain;
 
-}
 
-.featuredCard h3,
-.appCard h3{
+.app img{
 
-  margin-top:18px;
+    width:74px;
 
-  font-size:1.5rem;
+    height:74px;
 
-}
+    object-fit:contain;
 
-.featuredCard p,
-.appCard p{
+    border-radius:18px;
 
-  margin-top:12px;
+    background:#fff;
 
-  color:
-    var(--muted);
+    padding:6px;
 
-  line-height:1.9;
+    box-shadow:var(--shadow);
 
 }
 
-/* =========================
-   BUTTON
-========================= */
 
-.launchBtn{
 
-  margin-top:20px;
 
-  border:none;
 
-  cursor:pointer;
+.app span{
 
-  border-radius:999px;
+    margin-top:12px;
 
-  padding:
-    14px 22px;
+    text-align:center;
 
-  color:white;
+    font-size:14px;
 
-  font-weight:700;
+    font-weight:600;
 
-  background:
-
-    linear-gradient(
-      135deg,
-      var(--accent),
-      var(--accent2)
-    );
+    line-height:1.4;
 
 }
 
-/* =========================
-   APPS GRID
-========================= */
 
-.appsGrid{
 
-  display:grid;
 
-  grid-template-columns:
 
-    repeat(
-      auto-fill,
-      minmax(
-        320px,
-        1fr
-      )
-    );
+.empty-state{
 
-  gap:20px;
+    text-align:center;
+
+    padding:80px 20px;
 
 }
 
-/* =========================
-   EMPTY
-========================= */
+.empty-state h2{
 
-.emptyState{
-
-  text-align:center;
-
-  padding:
-    80px 20px;
+    margin-bottom:12px;
 
 }
 
-.emptyState h3{
+.empty-state p{
 
-  font-size:2rem;
-
-}
-
-.emptyState p{
-
-  margin-top:12px;
-
-  color:
-    var(--muted);
+    color:var(--text2);
 
 }
 
-/* =========================
-   FOOTER
-========================= */
 
-#footer{
 
-  margin-top:80px;
 
-  text-align:center;
 
-}
+footer{
 
-#footer img{
+    padding:40px;
 
-  width:72px;
-  height:72px;
+    border-top:1px solid var(--border);
 
-  object-fit:contain;
+    text-align:center;
+
+    color:var(--text2);
 
 }
 
-#footer p{
 
-  margin-top:18px;
 
-  color:
-    var(--muted);
 
-}
 
-/* =========================
-   MOBILE
-========================= */
+/* ========================================= */
 
 @media(max-width:768px){
 
-  .hero{
+    .search-section{
 
-    padding:
-      24px 0
-      24px;
+        padding-top:35px;
 
-  }
+    }
 
-  .heroLogo{
+    .search-section h1{
 
-    width:110px;
+        font-size:30px;
 
-    height:110px;
+    }
 
-    margin-bottom:16px;
+    .apps-grid{
 
-  }
+        grid-template-columns:repeat(4,1fr);
 
-  .hero h1{
+        gap:22px;
 
-    font-size:2.2rem;
+    }
 
-  }
+    .app img{
 
-  .hero p{
+        width:62px;
 
-    font-size:.95rem;
+        height:62px;
 
-    line-height:1.7;
+    }
 
-  }
+    .app span{
 
-  .featuredCard{
+        font-size:13px;
 
-    min-width:280px;
+    }
 
-  }
+    .search-box button{
+
+        width:100%;
+
+    }
 
 }
