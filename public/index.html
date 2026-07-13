@@ -3,244 +3,205 @@
 
 <head>
 
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1"
-  >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-  <title>
-    Vidhwaan App Store
-  </title>
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge">
 
-  <meta
-    name="description"
-    content="Discover and launch applications built by Vidhwaan."
-  >
+    <title>
 
-  <meta
-    name="keywords"
-    content="Vidhwaan, Vidhwaan App Store, Apps, AI, Marketplace, Education, Community, Technology"
-  >
+        VIDHWAAN App Store
 
-  <meta
-    name="author"
-    content="Vidhwaan"
-  >
+    </title>
 
-  <meta
-    name="robots"
-    content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-  >
+    <meta
+        name="description"
+        content="Official VIDHWAAN App Store. Discover and launch applications from the VIDHWAAN ecosystem.">
 
-  <meta
-    name="theme-color"
-    content="#07111f"
-  >
+    <meta
+        name="theme-color"
+        content="#0b1120">
 
-  <link
-    rel="canonical"
-    href="https://store.vidhwaan.com"
-  >
+    <link
+        rel="icon"
+        href="favicon.ico">
 
-  <meta
-    property="og:type"
-    content="website"
-  >
+    <link
+        rel="manifest"
+        href="manifest.json">
 
-  <meta
-    property="og:site_name"
-    content="Vidhwaan App Store"
-  >
-
-  <meta
-    property="og:title"
-    content="Vidhwaan App Store"
-  >
-
-  <meta
-    property="og:description"
-    content="Discover and launch applications built by Vidhwaan."
-  >
-
-  <meta
-    property="og:url"
-    content="https://store.vidhwaan.com"
-  >
-
-  <meta
-    property="og:image"
-    content="https://store.vidhwaan.com/icons/icon-512.png"
-  >
-
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
-
-  <meta
-    name="twitter:title"
-    content="Vidhwaan App Store"
-  >
-
-  <meta
-    name="twitter:description"
-    content="Discover and launch applications built by Vidhwaan."
-  >
-
-  <meta
-    name="twitter:image"
-    content="https://store.vidhwaan.com/icons/icon-512.png"
-  >
-
-  <link
-    rel="icon"
-    href="./favicon.ico"
-  >
-
-  <link
-    rel="stylesheet"
-    href="./main.css"
-  >
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"Vidhwaan App Store",
-    "url":"https://store.vidhwaan.com",
-    "description":"Discover and launch applications built by Vidhwaan.",
-    "publisher":{
-      "@type":"Organization",
-      "name":"Vidhwaan",
-      "url":"https://vidhwaan.com"
-    }
-  }
-  </script>
+    <link
+        rel="stylesheet"
+        href="main.css">
 
 </head>
 
 <body>
 
-  <div class="bgOrb orb1"></div>
-  <div class="bgOrb orb2"></div>
-  <div class="bgOrb orb3"></div>
+    <!-- ===================================================== -->
+    <!-- HEADER -->
+    <!-- ===================================================== -->
 
-  <main id="app">
+    <header class="header">
 
-    <section class="hero">
+        <div class="container">
 
-      <img
-        class="heroLogo"
-        src="./icons/logo.png"
-        alt="Vidhwaan App Store"
-      >
+            <a
+                href="https://vidhwaan.com"
+                target="_blank"
+                class="logo">
 
-      <div class="heroBadge">
+                <img
+                    src="https://vidhwaan.com/icons1/logo.png"
+                    alt="VIDHWAAN">
 
-        VIDHWAAN APP STORE
+                <span>
 
-      </div>
+                    VIDHWAAN App Store
 
-      <h1>
+                </span>
 
-        Vidhwaan
-        App Store
+            </a>
 
-      </h1>
+        </div>
 
-      <p>
+    </header>
 
-        Discover and launch applications
-        built across the Vidhwaan ecosystem.
 
-      </p>
+
+
+
+    <!-- ===================================================== -->
+    <!-- SEARCH -->
+    <!-- ===================================================== -->
+
+    <section class="search-section">
+
+        <div class="container">
+
+            <h1>
+
+                Discover Applications
+
+            </h1>
+
+            <p>
+
+                Explore applications from the VIDHWAAN ecosystem.
+
+            </p>
+
+            <div class="search-box">
+
+                <input
+
+                    id="searchInput"
+
+                    type="text"
+
+                    placeholder="Search applications...">
+
+                <button
+
+                    id="searchButton">
+
+                    Search
+
+                </button>
+
+            </div>
+
+            <div
+                id="appCount"
+                class="app-count">
+
+                Loading applications...
+
+            </div>
+
+        </div>
 
     </section>
 
 
 
-    <section class="section">
 
-      <div class="sectionHeader">
+
+    <!-- ===================================================== -->
+    <!-- APPS -->
+    <!-- ===================================================== -->
+
+    <main class="container">
+
+        <div
+
+            id="appsGrid"
+
+            class="apps-grid">
+
+        </div>
+
+    </main>
+
+
+
+
+
+    <!-- ===================================================== -->
+    <!-- EMPTY -->
+    <!-- ===================================================== -->
+
+    <div
+
+        id="emptyState"
+
+        class="empty-state"
+
+        hidden>
 
         <h2>
 
-          Featured Apps
+            No Applications Found
 
         </h2>
 
-      </div>
+        <p>
 
-      <div
-        id="featuredApps"
-        class="featuredApps"
-      ></div>
+            Try searching with another name.
 
-    </section>
+        </p>
 
-    <section class="searchSection">
-
-      <div class="searchWrap">
-
-        <input
-          id="appSearch"
-          type="search"
-          placeholder="Search apps..."
-          autocomplete="off"
-        >
-
-      </div>
-
-    </section>
+    </div>
 
 
-    <section class="section">
 
-      <div
-        id="appsGrid"
-        class="appsGrid"
-      ></div>
 
-    </section>
 
-    <section
-      id="emptyState"
-      class="emptyState"
-    >
+    <!-- ===================================================== -->
+    <!-- FOOTER -->
+    <!-- ===================================================== -->
 
-      <h3>
+    <footer>
 
-        Search To Discover Apps
+        <p>
 
-      </h3>
+            © 2026 VIDHWAAN
 
-      <p>
-
-        Search any Vidhwaan application
-        to instantly find and launch it.
-
-      </p>
-
-    </section>
-
-    <footer id="footer">
-
-      <p>
-
-        © Vidhwaan
-
-      </p>
+        </p>
 
     </footer>
 
-  </main>
 
-  <script
-    src="./app.js"
-    defer
-  ></script>
+
+
+
+    <script
+        src="app.js"></script>
 
 </body>
 
