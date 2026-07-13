@@ -1,178 +1,82 @@
 [
   {
-    "id": "vidhwaan-ai",
-    "name": "Vidhwaan AI",
-    "category": "AI",
-    "description": "Advanced AI assistants, intelligent automation, productivity systems and next-generation digital experiences.",
-    "icon": "https://ai.vidhwaan.com/icons/icon-512.png",
-    "url": "https://ai.vidhwaan.com"
+    "name": "VIDHWAAN Time",
+    "url": "https://time.vidhwaan.com",
+    "icon": "https://time.vidhwaan.com/icons/logo.png"
   },
   {
-    "id": "vidhai",
-    "name": "VidhAI",
-    "category": "BUSINESS",
-    "description": "AI-powered business automation, digital transformation, websites and intelligent workflow solutions.",
-    "icon": "https://ai.vidhwaan.com/icons/icon-512.png",
-    "url": "https://vidhai.vidhwaan.com"
+    "name": "VIDHAI",
+    "url": "https://vidhai.vidhwaan.com",
+    "icon": "https://vidhai.vidhwaan.com/icons/logo.png"
   },
   {
-    "id": "apps-platform",
-    "name": "Vidhwaan Apps Platform",
-    "category": "PRODUCTIVITY",
-    "description": "Unified workspace featuring development tools, productivity applications, project management and future AI-powered utilities.",
-    "icon": "https://apps.vidhwaan.com/icons/icon-512.png",
-    "url": "https://apps.vidhwaan.com"
-  },
-  {
-    "id": "marketplace",
-    "name": "Village Marketplace",
-    "category": "MARKETPLACE",
-    "description": "Modern commerce infrastructure connecting local businesses, products, services and village economies.",
-    "icon": "https://market.vidhwaan.com/icons/icon-512.png",
-    "url": "https://market.vidhwaan.com"
-  },
-  {
-    "id": "vidhwaan-technologies",
-    "name": "Vidhwaan Technologies",
-    "category": "TECHNOLOGY",
-    "description": "Cloud-native platforms, automation systems and scalable software solutions built for global impact.",
-    "icon": "https://tech.vidhwaan.com/icons/icon-512.png",
-    "url": "https://tech.vidhwaan.com"
-  },
-  {
-    "id": "vidhwaan-group",
-    "name": "Vidhwaan Group",
-    "category": "ECOSYSTEM",
-    "description": "The official gateway to the Vidhwaan ecosystem connecting products, technology, education and future innovation.",
-    "icon": "https://vidhwaan.com/icons/icon-512.png",
-    "url": "https://vidhwaan.com"
-  },
-  {
-    "id": "utukur",
-    "name": "Utukur App",
-    "category": "COMMUNITY",
-    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
-    "icon": "https://utukur.vidhwaan.com/icons/icon-512.png",
-    "url": "https://utukur.vidhwaan.com"
-  },
-
-  {
-    "id": "Rapur",
-    "name": "Rapur App",
-    "category": "COMMUNITY",
-    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
-    "icon": "https://rapur.vidhwaan.com/icons/icon-512.png",
-    "url": "https://rapur.vidhwaan.com"
-  },
-  {
-    "id": "Sydapuram",
-    "name": "Sydapuram App",
-    "category": "COMMUNITY",
-    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
-    "icon": "https://sydapuram.vidhwaan.com/icons/icon-512.png",
-    "url": "https://sydapuram.vidhwaan.com"
-  },
-
-  {
-    "id": "Podalakur",
-    "name": "Podalakur App",
-    "category": "COMMUNITY",
-    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
-    "icon": "https://podalakur.vidhwaan.com/icons/icon-512.png",
-    "url": "https://podalakur.vidhwaan.com"
-  },
-
-  {
-    "id": "Gudur",
-    "name": "Gudur App",
-    "category": "COMMUNITY",
-    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
-    "icon": "https://gudur.vidhwaan.com/icons/icon-512.png",
-    "url": "https://gudur.vidhwaan.com"
-  },
-
-  {
-    "id": "Nellore",
-    "name": "Nellore App",
-    "category": "COMMUNITY",
-    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
-    "icon": "https://nellore.vidhwaan.com/icons/icon-512.png",
-    "url": "https://nellore.vidhwaan.com"
-  },
-
-  {
-    "id": "kavali",
-    "name": "Kavali App",
-    "category": "COMMUNITY",
-    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
-    "icon": "https://kavali.vidhwaan.com/icons/icon-512.png",
-    "url": "https://kavali.vidhwaan.com"
-  },
-
-  {
-    "id": "Krishnapatnam",
-    "name": "Krishnapatnam App",
-    "category": "COMMUNITY",
-    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
-    "icon": "https://krishnapatnam.vidhwaan.com/icons/icon-512.png",
-    "url": "https://krishnapatnam.vidhwaan.com"
-  },
-
-  {
-    "id": "Turimerla",
-    "name": "Turimerla",
-    "category": "COMMUNITY",
-    "description": "Digital gateway for village services, community information, local experiences and smart village initiatives.",
-    "icon": "https://turimerla.vidhwaan.com/icons/icon-512.png",
-    "url": "https://turimerla.vidhwaan.com"
-  },
-  
-  {
-    "id": "kidlab",
     "name": "KidLab",
-    "category": "EDUCATION",
-    "description": "Interactive science missions, experiments, visual learning and futuristic educational experiences.",
-    "icon": "https://villagekidlab.vidhwaan.com/icons/logo2.png",
-    "url": "https://villagekidlab.vidhwaan.com"
+    "url": "https://villagekidlab.vidhwaan.com",
+    "icon": "https://villagekidlab.vidhwaan.com/icons/logo.png"
   },
   {
-    "id": "gita",
+    "name": "Billwaan",
+    "url": "https://bill.vidhwaan.com",
+    "icon": "https://bill.vidhwaan.com/icons/logo.png"
+  },
+  {
     "name": "Bhagavad Gita",
-    "category": "SPIRITUAL",
-    "description": "Daily spiritual wisdom, Bhagavad Gita teachings and meaningful guidance for everyday life.",
-    "icon": "https://gita.vidhwaan.com/icons/icon-512.png",
-    "url": "https://gita.vidhwaan.com"
+    "url": "https://gita.vidhwaan.com",
+    "icon": "https://gita.vidhwaan.com/icons/logo.png"
   },
   {
-    "id": "quotes",
+    "name": "BBF CCL",
+    "url": "https://bbfccl.vidhwaan.com",
+    "icon": "https://bbfccl.vidhwaan.com/icons/logo.png"
+  },
+  {
+    "name": "Zero App",
+    "url": "https://zeroapp.vidhwaan.com",
+    "icon": "https://zeroapp.vidhwaan.com/icons/logo.png"
+  },
+  {
     "name": "Quotes",
-    "category": "INSPIRATION",
-    "description": "Motivational, inspirational and life-changing quotes presented in a premium reading experience.",
-    "icon": "https://quotes.vidhwaan.com/icons/icon-512.png",
-    "url": "https://quotes.vidhwaan.com"
+    "url": "https://quotes.vidhwaan.com",
+    "icon": "https://quotes.vidhwaan.com/icons/logo.png"
   },
   {
-    "id": "foundation",
+    "name": "Marketplace",
+    "url": "https://market.vidhwaan.com",
+    "icon": "https://market.vidhwaan.com/icons/logo.png"
+  },
+  {
+    "name": "Code & Notes",
+    "url": "https://apps.vidhwaan.com",
+    "icon": "https://apps.vidhwaan.com/icons/logo.png"
+  },
+  {
+    "name": "Website & App",
+    "url": "https://app.vidhwaan.com",
+    "icon": "https://app.vidhwaan.com/icons/logo.png"
+  },
+  {
+    "name": "VIDHWAAN",
+    "url": "https://vidhwaan.com",
+    "icon": "https://vidhwaan.com/icons1/logo.png"
+  },
+  {
+    "name": "VIDHWAAN Store",
+    "url": "https://store.vidhwaan.com",
+    "icon": "https://store.vidhwaan.com/icons/logo.png"
+  },
+  {
+    "name": "VIDHWAAN Apps",
+    "url": "https://apps.vidhwaan.com",
+    "icon": "https://apps.vidhwaan.com/icons/logo.png"
+  },
+  {
+    "name": "Earn",
+    "url": "https://earn.vidhwaan.com",
+    "icon": "https://earn.vidhwaan.com/icons/logo.png"
+  },
+  {
     "name": "Foundation",
-    "category": "SOCIAL IMPACT",
-    "description": "Technology-driven initiatives focused on education, accessibility, inclusion and community empowerment.",
-    "icon": "https://foundation.vidhwaan.com/icons/icon-512.png",
-    "url": "https://foundation.vidhwaan.com"
-  },
-  {
-    "id": "one-rupee-app",
-    "name": "₹1 Website + App",
-    "category": "BUSINESS",
-    "description": "Affordable digital presence with professional website and app solutions for businesses and entrepreneurs.",
-    "icon": "https://app.vidhwaan.com/icons/icon-512.png",
-    "url": "https://app.vidhwaan.com"
-  },
-  {
-    "id": "earn",
-    "name": "Skills & Livelihood",
-    "category": "COMMUNITY",
-    "description": "Skill development, practical learning, employment support and livelihood opportunities.",
-    "icon": "https://earn.vidhwaan.com/icons/icon-512.png",
-    "url": "https://earn.vidhwaan.com"
+    "url": "https://foundation.vidhwaan.com",
+    "icon": "https://foundation.vidhwaan.com/icons/logo.png"
   }
 ]
