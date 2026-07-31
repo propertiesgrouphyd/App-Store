@@ -5,7 +5,7 @@
 
 const CACHE_NAME =
 
-  "utukur-universe-v3";
+  "utukur-universe-v4";
 
 /* =========================================
    STATIC ASSETS
