@@ -340,46 +340,148 @@ footer{
 
 /* ========================================= */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
-    .search-section{
-
-        padding-top:35px;
-
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
-    .search-section h1{
-
-        font-size:30px;
-
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding-left: 14px;
+        padding-right: 14px;
+        box-sizing: border-box;
     }
 
-    .apps-grid{
-
-        grid-template-columns:repeat(4,1fr);
-
-        gap:22px;
-
+    .header {
+        width: 100%;
+        overflow: hidden;
     }
 
-    .app img{
-
-        width:62px;
-
-        height:62px;
-
+    .logo {
+        min-width: 0;
+        max-width: 100%;
+        gap: 10px;
+        font-size: 20px;
     }
 
-    .app span{
-
-        font-size:13px;
-
+    .logo img {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
     }
 
-    .search-box button{
-
-        width:100%;
-
+    .logo span {
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: anywhere;
     }
 
+    .search-section {
+        width: 100%;
+        max-width: 100%;
+        padding-top: 35px;
+        overflow: hidden;
+    }
+
+    .search-section h1 {
+        font-size: 30px;
+        line-height: 1.2;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .search-section p {
+        max-width: 100%;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-box input,
+    .search-box button {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .apps-grid {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px 8px;
+        padding: 20px 0 60px;
+    }
+
+    .app {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .app img {
+        width: 62px;
+        height: 62px;
+        max-width: 100%;
+    }
+
+    .app span {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin-top: 10px;
+        font-size: 13px;
+        line-height: 1.35;
+        text-align: center;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .apps-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px 5px;
+    }
+
+    .app img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .app span {
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
 }
