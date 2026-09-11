@@ -4,17 +4,44 @@
     "url": "https://time.vidhwaan.com",
     "icon": "https://time.vidhwaan.com/icons/logo.png"
   },
+
   {
     "name": "AIVidhya",
     "url": "https://aividhya.vidhwaan.com",
     "icon": "https://aividhya.vidhwaan.com/icons/logo.png"
   },
 
- {
+  {
+    "name": "Vidhwaan Technology",
+    "url": "https://tech.vidhwaan.com",
+    "icon": "https://tech.vidhwaan.com/icons/logo.png"
+  },
+
+  {
+    "name": "Vidhwaan AI",
+    "url": "https://ai.vidhwaan.com",
+    "icon": "https://ai.vidhwaan.com/icons/logo.png"
+  },
+
+  {
     "name": "VIDHWAAN NEET",
     "url": "https://neet.vidhwaan.com",
     "icon": "https://neet.vidhwaan.com/icons/logo.png"
   },
+
+  {
+    "name": "VIDHWAAN Calculator",
+    "url": "https://calculator.vidhwaan.com",
+    "icon": "https://calculator.vidhwaan.com/icons/icon-512.png"
+  },
+
+
+  {
+    "name": "VIDHWAAN Clock",
+    "url": "https://clock.vidhwaan.com",
+    "icon": "https://clock.vidhwaan.com/icons/icon-512.png"
+  },
+
   
   {
     "name": "VIDHAI",
@@ -109,57 +136,13 @@
     "url": "https://ap.vidhwaan.com",
     "icon": "https://ap.vidhwaan.com/icons/logo.png"
   },
-  {
-    "name": "Utukur",
-    "url": "https://utukur.vidhwaan.com",
-    "icon": "https://utukur.vidhwaan.com/icons/logo.png"
-  },
-  {
-    "name": "Turimerla",
-    "url": "https://turimerla.vidhwaan.com",
-    "icon": "https://turimerla.vidhwaan.com/icons/logo.png"
-  },
-  {
-    "name": "Podalakur",
-    "url": "https://podalakur.vidhwaan.com",
-    "icon": "https://podalakur.vidhwaan.com/icons/logo.png"
-  },
-  {
-    "name": "Sydapuram",
-    "url": "https://sydapuram.vidhwaan.com",
-    "icon": "https://sydapuram.vidhwaan.com/icons/logo.png"
-  },
-  {
-    "name": "Nellore",
-    "url": "https://nellore.vidhwaan.com",
-    "icon": "https://nellore.vidhwaan.com/icons/logo.png"
-  },
-  {
-    "name": "Rapur",
-    "url": "https://rapur.vidhwaan.com",
-    "icon": "https://rapur.vidhwaan.com/icons/logo.png"
-  },
-  {
-    "name": "Gudur",
-    "url": "https://gudur.vidhwaan.com",
-    "icon": "https://gudur.vidhwaan.com/icons/logo.png"
-  },
-  {
-    "name": "Kavali",
-    "url": "https://kavali.vidhwaan.com",
-    "icon": "https://kavali.vidhwaan.com/icons/logo.png"
-  },
 
   {
     "name": "Shri Hari Swamy",
     "url": "https://bhagavan.vidhwaan.com",
     "icon": "https://bhagavan.vidhwaan.com/swamy/logoswamy.png"
-  },
-  
-  {
-    "name": "Buchireddypalem",
-    "url": "https://buchireddypalem.vidhwaan.com",
-    "icon": "https://buchireddypalem.vidhwaan.com/icons/logo.png"
   }
+  
+
   
 ]
