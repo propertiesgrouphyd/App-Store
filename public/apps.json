@@ -12,7 +12,13 @@
   },
 
   {
-    "name": "AIVidhya",
+    "name": "AIVidhya English",
+    "url": "https://vidhyai.vidhwaan.com",
+    "icon": "https://vidhyai.vidhwaan.com/icons/logo.png"
+  },
+
+  {
+    "name": "AIVidhya Telugu",
     "url": "https://aividhya.vidhwaan.com",
     "icon": "https://aividhya.vidhwaan.com/icons/logo.png"
   },
@@ -71,8 +77,15 @@
     "url": "https://bill.vidhwaan.com",
     "icon": "https://bill.vidhwaan.com/icons/logo.png"
   },
+
   {
     "name": "Bhagavad Gita",
+    "url": "https://bhagavadgita.vidhwaan.com",
+    "icon": "https://bhagavadgita.vidhwaan.com/icons/logo.png"
+  },
+  
+  {
+    "name": "Bhagavad Gita Telugu",
     "url": "https://gita.vidhwaan.com",
     "icon": "https://gita.vidhwaan.com/icons/logo.png"
   },
