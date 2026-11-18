@@ -18,9 +18,15 @@
   },
   
   {
-    "name": "VIDHWAAN State",
+    "name": "Constitution Telugu",
     "url": "https://state.vidhwaan.com",
     "icon": "https://state.vidhwaan.com/icons/logo.png"
+  },
+
+  {
+    "name": "Constitution Hindi",
+    "url": "https://statehindi.vidhwaan.com",
+    "icon": "https://statehindi.vidhwaan.com/icons/logo.png"
   },
 
   {
